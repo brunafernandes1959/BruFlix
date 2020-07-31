@@ -1,0 +1,11 @@
+{
+  "categorias": [
+    {
+      "id": 1,
+      "nome": "Front End",
+      "descricao": "Faz a interface e a intetação com o usuário",
+      "cor": "#cdb1ff"
+    }
+    
+  ]
+}
