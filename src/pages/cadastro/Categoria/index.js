@@ -28,15 +28,21 @@ function CadastroCategoria() {
     );
   }
 
+  // ============
+
   useEffect(() => {
-    const URL_TOP = 'http://localhost:8080/categorias';
-      fetch('URL_TOP');
-      .then(async (respotaDoServidor) => {
-        const resposta = await respostaDoServidor.json();
-        setCategorias([
-          ...resposta,
-        ]);
-      });
+    if (window.location.href.includes('localhost')) {
+      const URL = 'http://localhost:8080/categorias';
+      fetch(URL)
+        .then(async (respostaDoServer) => {
+          if (respostaDoServer.ok) {
+            const resposta = await respostaDoServer.json();
+            setCategorias(resposta);
+            return;
+          }
+          throw new Error('Não foi possível pegar os dados');
+        });
+    }
   }, []);
 
   return (
@@ -49,6 +55,7 @@ function CadastroCategoria() {
 
       <form onSubmit={function handleSubmit(infosDoEvento) {
         infosDoEvento.preventDefault();
+
         setCategorias([
           ...categorias,
           values,
@@ -68,7 +75,7 @@ function CadastroCategoria() {
 
         <FormField
           label="Descrição:"
-          type="textarea"
+          type="????"
           name="descricao"
           value={values.descricao}
           onChange={handleChange}
@@ -89,8 +96,9 @@ function CadastroCategoria() {
 
       <ul>
         {categorias.map((categoria, indice) => (
+          // eslint-disable-next-line react/no-array-index-key
           <li key={`${categoria}${indice}`}>
-            {categoria.nome}
+            {categoria.titulo}
           </li>
         ))}
       </ul>
