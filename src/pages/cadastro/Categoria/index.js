@@ -28,24 +28,6 @@ function CadastroCategoria() {
           ...resposta,
         ]);
       });
-
-    // setTimeout(() => {
-    //   setCategorias([
-    //     ...categorias,
-    //     {
-    //       id: 1,
-    //       nome: 'Front End',
-    //       descricao: 'Uma categoria bacanudassa',
-    //       cor: '#cbd1ff',
-    //     },
-    //     {
-    //       id: 2,
-    //       nome: 'Back End',
-    //       descricao: 'Outra categoria bacanudassa',
-    //       cor: '#cbd1ff',
-    //     },
-    //   ]);
-    // }, 4 * 1000);
   }, []);
 
   return (
