@@ -4,6 +4,7 @@ import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
 import useForm from '../../../hooks/useForm';
+import Table from '../../../components/Table';
 
 function CadastroCategoria() {
   const valoresIniciais = {
@@ -109,6 +110,10 @@ function CadastroCategoria() {
         ))}
       </ul>
 
+      <Table/>
+
+      <br />
+      <br />
       <Link to="/">
         <Button> Ir para home </Button>
       </Link>
