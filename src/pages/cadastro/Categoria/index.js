@@ -92,7 +92,9 @@ function CadastroCategoria() {
         <Button>
           Cadastrar
         </Button>
-      </form>
+      </form>]
+
+      <h1>Categorias Cadastradas</h1>
 
       {categorias.length === 0 && (
         <div>
