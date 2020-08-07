@@ -28,6 +28,26 @@ function CadastroCategoria() {
           ...resposta,
         ]);
       });
+
+    // setTimeout(() => {
+    //   setCategorias([
+    //     ...categorias,
+    //     {
+    //       id: 1,
+    //       nome: 'Front End',
+    //       descricao: 'Uma categoria bacanudassa',
+    //       cor: '#cbd1ff',
+    //     },
+    //     {
+    //       id: 2,
+    //       nome: 'Back End',
+    //       descricao: 'Outra categoria bacanudassa',
+    //       cor: '#cbd1ff',
+    //     },
+    //   ]);
+    // }, 4 * 1000);
+  }, []);
+
   return (
     <PageDefault>
       <h1>
@@ -74,15 +94,13 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      <h1>Categorias Cadastradas</h1>
-
       {categorias.length === 0 && (
         <div>
           {/* Cargando... */}
           Loading...
         </div>
       )}
-
+      <h1>Categorias Cadastradas:</h1>
       <ul>
         {categorias.map((categoria) => (
           <li key={`${categoria.titulo}`}>
