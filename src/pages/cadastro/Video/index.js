@@ -83,6 +83,8 @@ function CadastroVideo() {
         Cadastrar Categoria
         </Button>
       </Link>
+      <br/>
+      <br/>
     </PageDefault>
   );
 }

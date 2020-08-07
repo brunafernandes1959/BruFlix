@@ -105,20 +105,21 @@ function CadastroCategoria() {
         {categorias.map((categoria) => (
           <li key={`${categoria.titulo}`}>
             {categoria.titulo}
-            <Button>Editar</Button>
-            <Button>Excluir</Button>
+      
           </li>
         ))}
       </ul>
-
-      
 
       <br />
       <br />
       <Link to="/">
         <Button> Ir para home </Button>
       </Link>
+      <br/>
+      <br/>
     </PageDefault>
+
+    
   );
 }
 
