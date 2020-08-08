@@ -27,7 +27,6 @@ function CadastroCategoria() {
           ...resposta,
         ]);
       });
-
   }, []);
 
   return (
@@ -78,10 +77,11 @@ function CadastroCategoria() {
 
       {categorias.length === 0 && (
         <div>
+          {/* Cargando... */}
           Loading...
         </div>
       )}
-      <h1>Categorias Cadastradas</h1>
+      <h1>Categorias Cadastradas:</h1>
       <ul>
         {categorias.map((categoria) => (
           <li key={`${categoria.titulo}`}>
@@ -91,8 +91,11 @@ function CadastroCategoria() {
       </ul>
 
       <Link to="/">
-        <Button> Ir para home </Button>
+        <Button>
+        Ir para home
+        </Button>
       </Link>
+      <br/> 
       <br/>
     </PageDefault>
   );
