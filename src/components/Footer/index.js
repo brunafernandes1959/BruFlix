@@ -5,7 +5,7 @@ function Footer() {
   return (
     <FooterBase>
       <a href="http://www.faetec.rj.gov.br/">
-        <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Ficonape.com%2Ffaetec-logo-logo-icon-svg-png.html&psig=AOvVaw17HcQAsc9OSkxv6VTtD7BA&ust=1621545110531000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiept7U1vACFQAAAAAdAAAAABAD" alt="Logo Faetec" />
+        <img src="https://fontmeme.com/permalink/210519/181bf36f9e030c53b89b834bec4c0ffb.png" alt="Logo Faetec" />
       </a>
       <p>
         Orgulhosamente criado durante o Tećnico em informática - 
