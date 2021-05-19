@@ -4,13 +4,13 @@ import { FooterBase } from './styles';
 function Footer() {
   return (
     <FooterBase>
-      <a href="https://www.alura.com.br/">
-        <img src="https://www.alura.com.br/assets/img/alura-logo-white.1570550707.svg" alt="Logo Alura" />
+      <a href="http://www.faetec.rj.gov.br/">
+        <img src="src/assets/Faetec_universal.png" alt="Logo Alura" />
       </a>
       <p>
         Orgulhosamente criado durante a
         {' '}
-        <a href="https://www.alura.com.br/">
+        <a href="http://www.faetec.rj.gov.br/">
           Imersão React da Alura
         </a>
       </p>
