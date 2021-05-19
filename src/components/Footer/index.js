@@ -8,10 +8,10 @@ function Footer() {
         <img src="src/assets/Faetec_universal.png" alt="Logo Faetec" />
       </a>
       <p>
-        Orgulhosamente criado durante a
+        Orgulhosamente criado durante o
         {' '}
         <a href="http://www.faetec.rj.gov.br/">
-          Imersão React da Alura
+          Tećnico em informática
         </a>
       </p>
     </FooterBase>
