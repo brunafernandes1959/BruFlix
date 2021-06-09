@@ -75,12 +75,7 @@ function CadastroCategoria() {
         </Button>
       </form>
 
-      {categorias.length === 0 && (
-        <div>
-          {/* Cargando... */}
-          Loading...
-        </div>
-      )}
+      
       <h1>Categorias Cadastradas:</h1>
       <ul>
         {categorias.map((categoria) => (
@@ -89,7 +84,12 @@ function CadastroCategoria() {
           </li>
         ))}
       </ul>
-
+      {categorias.length === 0 && (
+        <div>
+          {/* Cargando... */}
+          Loading...
+        </div>
+      )}
       <Link to="/">
         <Button>
           Ir para home
