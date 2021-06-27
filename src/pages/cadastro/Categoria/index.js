@@ -83,21 +83,20 @@ function CadastroCategoria() {
             {categoria.titulo}
           </li>
         ))}
-      </ul>
-      {categorias.length === 0 && (
+     {categorias.length === 0 && (
         <div>
           {/* Cargando... */}
           Loading...
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
-          <div class="obj"></div>
         </div>
       )}
+
+      <ul>
+        {categorias.map((categoria) => (
+          <li key={`${categoria.titulo}`}>
+            {categoria.titulo}
+          </li>
+        ))}
+      </ul>
       <Link to="/">
         <Button>
           Ir para home
