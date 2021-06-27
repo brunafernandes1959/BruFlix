@@ -88,6 +88,14 @@ function CadastroCategoria() {
         <div>
           {/* Cargando... */}
           Loading...
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
+          <div class="obj"></div>
         </div>
       )}
       <Link to="/">
