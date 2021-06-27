@@ -77,26 +77,21 @@ function CadastroCategoria() {
 
       
       <h1>Categorias Cadastradas:</h1>
-      <ul>
-        {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-     {categorias.length === 0 && (
-        <div>
-          {/* Cargando... */}
-          Loading...
-        </div>
-      )}
+      { categorias . comprimento  ===  0  &&  (
+        < div >
+          { / * Cargando ... * / }
+          Carregando...
+        < / div >
+      ) }
 
-      <ul>
-        {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-      </ul>
+      < ul >
+        { categorias . mapa ( ( categoria )  =>  (
+          < li  chave = { ` $ { categoria . titulo } ` } >
+            { categoria . titulo }
+          < / li >
+        ) ) }
+      < / ul >
+
       <Link to="/">
         <Button>
           Ir para home
