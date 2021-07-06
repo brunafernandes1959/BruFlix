@@ -151,8 +151,8 @@ function CadastroCategoria() {
           </tr>
         </thead>
         <tbody>
-          {categorias.map((category, index) => (
-            <tr key={index}>
+          {categorias.map((category) => (
+            <tr>
               <td>{category.titulo}</td>
               <td>{category.descricao}</td>
               <Td>
