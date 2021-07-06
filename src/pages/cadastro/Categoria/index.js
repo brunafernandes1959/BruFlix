@@ -76,21 +76,40 @@ function CadastroCategoria() {
       </form>
 
       
-      <h1>Categorias Cadastradas:</h1>
-      {categorias.length === 0 && (
-        <div>
-          {/* Cargando... */}
-          Loading...
-        </div>
-      )}
 
-      <ul>
-        {categorias.map((categoria) => (
-          <li key={`${categoria.titulo}`}>
-            {categoria.titulo}
-          </li>
-        ))}
-      </ul>
+      <Table>
+        <thead>
+          <tr>
+            <th>Titulo</th>
+            <th>Descrião</th>
+            <Th>Editar</Th>
+            <Th>Apagar</Th>
+          </tr>
+        </thead>
+        <tbody>
+          {categories.map((category, index) => {
+            return (
+              <tr key={index}>
+                <td>{category.titulo}</td>
+                <td>{category.descricao}</td>
+                <Td>
+                  <Button className="btn-edit">
+                    <MdModeEdit size={25} />
+                  </Button>
+                </Td>
+                <Td>
+                  <Button className="btn-delete">
+                    <MdDelete
+                      size={25}
+                      onClick={() => handleDelete(category.id)}
+                    />
+                  </Button>
+                </Td>
+              </tr>
+            )
+          })}
+        </tbody>
+      </Table>
       <Link to="/">
         <Button>
           Ir para home
