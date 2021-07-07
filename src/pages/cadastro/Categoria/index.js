@@ -33,17 +33,12 @@ function CadastroCategoria() {
     margin: 5px 15px 20px 0;
   `;
 
-  const ulStyle = {
-    fontSize: 0,
-    listStyleType: 'none',
-    padding: 0,
-    margin: '0px',
-  };
-
   const liStyle = {
-    display: 'inline-block',
+    display: 'flex',
+    flexDirection: 'row',
     padding: '20px',
     fontSize: '11pt',
+
   };
 
   const { handleChange, values, clearForm } = useForm(valoresIniciais);
@@ -124,7 +119,7 @@ function CadastroCategoria() {
         <Button type="submit">
           Cadastrar
         </Button>
-
+        <ToastContainer position="--top-right" autoClose={3000} />
       </form>
       <h1>Categorias Cadastradas:</h1>
       {categorias.length === 0 && (
@@ -134,20 +129,25 @@ function CadastroCategoria() {
         </div>
       )}
 
-      <ul className={ulStyle}>
+      <ul>
         {categorias.map((categoria) => (
           <li key={`${categoria.titulo}`} className={liStyle}>
-            {categoria.titulo}
-            <ButtonEdit>
-              <MdModeEdit size={25} />
-            </ButtonEdit>
-            <ButtonDelete>
-              <MdDelete
-                size={25}
-                onClick={() => handleDelete(categoria.id)}
-              />
+            <h2>{categoria.titulo}</h2>
 
-            </ButtonDelete>
+            <div>
+
+              <ButtonEdit>
+                <MdModeEdit size={25} />
+              </ButtonEdit>
+              <ButtonDelete>
+                <MdDelete
+                  size={25}
+                  onClick={() => handleDelete(categoria.id)}
+                />
+
+              </ButtonDelete>
+            </div>
+
           </li>
         ))}
       </ul>
@@ -158,7 +158,6 @@ function CadastroCategoria() {
       </Link>
       <br />
       <br />
-      <ToastContainer position="top-right" autoClose={3000} />
     </PageDefault>
   );
 }
