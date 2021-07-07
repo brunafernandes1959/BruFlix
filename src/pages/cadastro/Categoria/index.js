@@ -16,49 +16,35 @@ function CadastroCategoria() {
     cor: '',
   };
 
-  const Th = styled.th`
-  text-align: center !important;
-`;
-
-  const Td = styled.td`
-  text-align: center !important;
-
-  .btn-delete {
-    background: var(--danger);
-    width: 80px;
-    height: 54px;
-    border: none;
-    margin: 5px 15px 20px 0;
-  }
-
-  .btn-edit {
+  const ButtonEdit = styled.button`
     background: var(--backEnd);
     width: 80px;
     height: 54px;
     border: none;
     margin: 5px 15px 20px 0;
-  }
-`;
 
-  const Table = styled.table`
-  border: 1px solid #2a7ae4;
-  border-collapse: collapse;
-  width: 100%;
-  margin: 20px 0;
+  `;
 
-  thead tr th {
-    padding: 15px;
-    border: 1px solid #2a7ae4;
-  }
-  thead {
-    border-bottom: 1px solid #2a7ae4;
-  }
-  td,
-  th {
-    text-align: left;
-    padding: 10px;
-  }
-`;
+  const ButtonDelete = styled.button`
+    background: var(--danger);
+    width: 80px;
+    height: 54px;
+    border: none;
+    margin: 5px 15px 20px 0;
+  `;
+
+  const ulStyle = {
+    fontSize: 0,
+    listStyleType: 'none',
+    padding: 0,
+    margin: '0px',
+  };
+
+  const liStyle = {
+    display: 'inline-block',
+    padding: '20px',
+    fontSize: '11pt',
+  };
 
   const { handleChange, values, clearForm } = useForm(valoresIniciais);
 
@@ -140,39 +126,31 @@ function CadastroCategoria() {
         </Button>
 
       </form>
+      <h1>Categorias Cadastradas:</h1>
+      {categorias.length === 0 && (
+        <div>
+          {/* Cargando... */}
+          Loading...
+        </div>
+      )}
 
-      <Table>
-        <thead>
-          <tr>
-            <th>Titulo</th>
-            <th>Descrião</th>
-            <Th>Editar</Th>
-            <Th>Apagar</Th>
-          </tr>
-        </thead>
-        <tbody>
-          {categorias.map((category) => (
-            <tr>
-              <td>{category.titulo}</td>
-              <td>{category.descricao}</td>
-              <Td>
-                <Button className="btn-edit">
-                  <MdModeEdit size={25} />
-                </Button>
-              </Td>
-              <Td>
-                <Button className="btn-delete">
-                  <MdDelete
-                    size={25}
-                    onClick={() => handleDelete(category.id)}
-                  />
-                </Button>
-              </Td>
-              <ToastContainer position="top-right" autoClose={3000} />
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <ul className={ulStyle}>
+        {categorias.map((categoria) => (
+          <li key={`${categoria.titulo}`} className={liStyle}>
+            {categoria.titulo}
+            <ButtonEdit>
+              <MdModeEdit size={25} />
+            </ButtonEdit>
+            <ButtonDelete>
+              <MdDelete
+                size={25}
+                onClick={() => handleDelete(categoria.id)}
+              />
+
+            </ButtonDelete>
+          </li>
+        ))}
+      </ul>
       <Link to="/">
         <Button>
           Ir para home
@@ -180,6 +158,7 @@ function CadastroCategoria() {
       </Link>
       <br />
       <br />
+      <ToastContainer position="top-right" autoClose={3000} />
     </PageDefault>
   );
 }
