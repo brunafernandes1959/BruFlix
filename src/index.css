@@ -13,6 +13,7 @@
   --white: #FFFFFF;
   --frontEnd: #6BD1FF;
   --backEnd: #00C86F;
+  --danger:#f04747;
 }
 
 html,
@@ -30,3 +31,4 @@ a {
   display: flex;
   flex-direction: column;
 }
+
