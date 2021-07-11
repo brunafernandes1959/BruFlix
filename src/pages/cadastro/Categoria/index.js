@@ -13,25 +13,26 @@ import FormField from '../../../components/FormField'
 function Categoria() {
   const initialValues = {
     titulo: '',
-    cor: '',
+    cor: '#FF8847',
     link_extra: {
       text: '',
       url: '',
     },
-  };
-  const { values, handleChange, clearForm } = useForm(initialValues);
-  const [categories, setCategories] = useState([]);
+  }
+  const { values, handleChange, clearForm } = useForm(initialValues)
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     fetch(`${config.URL_APP}/categorias`).then(async (responseServer) => {
-      const response = await responseServer.json();
+      const response = await responseServer.json()
 
-      setCategories([...response]);
-    });
-  }, []);
+      setCategories([...response])
+    })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault()
     try {
       categoryRepository
         .create({
@@ -40,17 +41,14 @@ function Categoria() {
           descricao: values.descricao,
         })
         .then(() => {
-          setCategories([...categories, values]);
-          clearForm();
-          toast.success('Categoria cadastrada com sucesso!');
-        });
+          setCategories([...categories, values])
+          clearForm()
+          toast.success('Categoria cadastrada com sucesso!')
+        })
     } catch (error) {
-      toast.error('Não foi possível cadastar a caterdoria.');
+      toast.error('Não foi possível cadastar a caterdoria.')
     }
   }
-
-  
-  const { titulo, cor } = values;
 
   async function handleDelete(id) {
     try {
@@ -69,6 +67,7 @@ function Categoria() {
     }
   }
 
+  const { titulo, cor } = values
 
   return (
     <PageDefault>
@@ -110,7 +109,7 @@ function Categoria() {
       </form>
 
       {categories.length === 0 && (
-        'Loading'
+        <div>Loading</div>
       )}
       <Table>
         <thead>
@@ -122,40 +121,44 @@ function Categoria() {
           </tr>
         </thead>
         <tbody>
-          {categories.map((category, index) => (
-            // eslint-disable-next-line react/no-array-index-key
-            <tr key={index}>
-              <td>{category.titulo}</td>
-              <td>{category.descricao}</td>
-              <Td>
-                <Button className="btn-edit">
-                  <MdModeEdit size={25} />
-                </Button>
-              </Td>
-              <Td>
-                <Button className="btn-delete">
-                  <MdDelete
-                    size={25}
-                    onClick={() => handleDelete(category.id)}
-                  />
-                </Button>
-              </Td>
-            </tr>
-          ))}
+          {categories.map((category, index) => {
+            return (
+              <tr key={index}>
+                <td>{category.titulo}</td>
+                <td>{category.descricao}</td>
+                <Td>
+                  <Button className="btn-edit">
+                    <MdModeEdit size={25} />
+                  </Button>
+                </Td>
+                <Td>
+                  <Button className="btn-delete">
+                    <MdDelete
+                      size={25}
+                      onClick={() => handleDelete(category.id)}
+                    />
+                  </Button>
+                </Td>
+              </tr>
+            )
+          })}
         </tbody>
       </Table>
     </PageDefault>
-  );
+  )
 }
 
-export default Categoria;
+export default Categoria
+
+
 
 const Th = styled.th`
   text-align: center !important;
-`;
+`
 
 const Td = styled.td`
   text-align: center !important;
+
   .btn-delete {
     background: var(--danger);
     width: 80px;
@@ -163,6 +166,7 @@ const Td = styled.td`
     border: none;
     margin: 5px 15px 20px 0;
   }
+
   .btn-edit {
     background: var(--backEnd);
     width: 80px;
@@ -170,7 +174,7 @@ const Td = styled.td`
     border: none;
     margin: 5px 15px 20px 0;
   }
-`;
+`
 
 const ButtonCategory = styled.div`
   .btn-salvar {
@@ -187,13 +191,14 @@ const ButtonCategory = styled.div`
     border: none;
     margin: 5px 15px 20px 0;
   }
-`;
+`
 
 const Table = styled.table`
   border: 1px solid #2a7ae4;
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
+
   thead tr th {
     padding: 15px;
     border: 1px solid #2a7ae4;
@@ -206,4 +211,4 @@ const Table = styled.table`
     text-align: left;
     padding: 10px;
   }
-`;
+`
