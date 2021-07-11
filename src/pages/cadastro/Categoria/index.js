@@ -49,23 +49,7 @@ function Categoria() {
     }
   }
 
-  async function handleDelete(id) {
-    try {
-      await fetch(`${config.URL_APP}/categorias/${id}`, {
-        method: 'DELETE',
-      });
-
-      const updatedList = categories.filter((item) => item.id !== id);
-      setCategories(updatedList);
-
-      toast.error('Categoria apagada com sucesso!');
-    } catch (error) {
-      toast.error(
-        'Não foi possivél apagar. Entre em contato com o administrador.',
-      );
-    }
-  }
-
+  
   const { titulo, cor } = values;
 
   async function handleDelete(id) {
