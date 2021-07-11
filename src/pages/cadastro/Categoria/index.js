@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
+import FadeLoader from 'react-spinners/FadeLoader'
 import { MdDelete, MdModeEdit } from 'react-icons/md'
 import { ToastContainer, toast } from 'react-toastify'
 
@@ -113,7 +114,9 @@ function Categoria() {
       </form>
 
       {categories.length === 0 && (
-        <div>Loading</div>
+        <Loading>
+          <FadeLoader size={25} color={'#016ca8'}/>
+        </Loading>
       )}
       <Table>
         <thead>
@@ -154,7 +157,11 @@ function Categoria() {
 
 export default Categoria
 
-
+const Loading = styled.div`
+  margin: 50px;
+  display: flex;
+  justify-content: center;
+`
 
 const Th = styled.th`
   text-align: center !important;
