@@ -20,13 +20,13 @@ function Categoria() {
     },
   };
   const { values, handleChange, clearForm } = useForm(initialValues);
-  const [categorias, setCategorias] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch(`${config.URL_APP}/categorias`).then(async (responseServer) => {
       const response = await responseServer.json();
 
-      setCategorias([...response]);
+      setCategories([...response]);
     });
   }, []);
 
@@ -40,7 +40,7 @@ function Categoria() {
           descricao: values.descricao,
         })
         .then(() => {
-          setCategorias([...categorias, values]);
+          setCategories([...categories, values]);
           clearForm();
           toast.success('Categoria cadastrada com sucesso!');
         });
@@ -55,8 +55,8 @@ function Categoria() {
         method: 'DELETE',
       });
 
-      const updatedList = categorias.filter((item) => item.id !== id);
-      setCategorias(updatedList);
+      const updatedList = categories.filter((item) => item.id !== id);
+      setCategories(updatedList);
 
       toast.error('Categoria apagada com sucesso!');
     } catch (error) {
@@ -72,18 +72,19 @@ function Categoria() {
     try {
       await fetch(`${config.URL_APP}/categorias/${id}`, {
         method: 'DELETE',
-      });
+      })
 
-      const updatedList = categorias.filter((item) => item.id !== id);
-      setCategorias(updatedList);
+      const updatedList = categories.filter((item) => item.id !== id)
+      setCategories(updatedList)
 
-      toast.error('Categoria apagada com sucesso!');
+      toast.error('Categoria apagada com sucesso!')
     } catch (error) {
       toast.error(
-        'Não foi possivél apagar. Entre em contato com o administrador.',
-      );
+        'Não foi possivél apagar. Entre em contato com o administrador.'
+      )
     }
   }
+
 
   return (
     <PageDefault>
@@ -124,7 +125,7 @@ function Categoria() {
         <ToastContainer position="top-right" autoClose={3000} />
       </form>
 
-      {categorias.length === 0 && (
+      {categories.length === 0 && (
         'Loading'
       )}
       <Table>
@@ -137,7 +138,7 @@ function Categoria() {
           </tr>
         </thead>
         <tbody>
-          {categorias.map((category, index) => (
+          {categories.map((category, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={index}>
               <td>{category.titulo}</td>
