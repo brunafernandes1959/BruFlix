@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 // import dadosIniciais from '../../data/dados_iniciais.json';
 import BannerMain from '../../components/BannerMain';
+import styled from 'styled-components'
 import FadeLoader from 'react-spinners/FadeLoader';
 import Carousel from '../../components/Carousel';
 import PageDefault from '../../components/PageDefault';
@@ -25,7 +26,9 @@ function Home() {
   return (
     <PageDefault paddingAll={0}>
       {dadosIniciais.length === 0 && (
-      <FadeLoader size={25} color={'#016ca8'}/>
+        <DivLoading>
+          <FadeLoader size={25} color={'#016ca8'}/>
+        </DivLoading>
       )}
 
       {dadosIniciais.map((categoria, indice) => {
@@ -77,5 +80,11 @@ function Home() {
     </PageDefault>
   );
 }
-
+const DivLoading = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 50vh;
+  align-items: center;
+`
 export default Home
