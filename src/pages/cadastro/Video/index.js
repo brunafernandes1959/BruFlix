@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useHistory } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer , toast } from 'react-toastify';
 
 import useForm from '../../../hooks/useForm';
 import PageDefault from '../../../components/PageDefault';
@@ -36,7 +36,8 @@ function NovoVideo() {
         categoriaId: categoriaEscolhida.id,
       })
       .then(() => {
-        history.push('/');
+        history.push('/cadastro/video');
+        
       });
   }
 
@@ -44,6 +45,8 @@ function NovoVideo() {
     event.preventDefault();
     clearForm();
   }
+
+  const handleClick = () => toast.success('Vídeo cadastrado com sucesso!')
 
   return (
     <PageDefault>
@@ -78,7 +81,7 @@ function NovoVideo() {
           suggestions={categoryTitles}
         />
         <ButtonCategory>
-          <Button className="btn-salvar">Salvar</Button>
+          <Button className="btn-salvar" onClick={handleClick}>Salvar</Button>
           <Button className="btn-limpar" onClick={handleClear}>
             Limpar
           </Button>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import FadeLoader from 'react-spinners/FadeLoader'
 import { MdDelete, MdModeEdit } from 'react-icons/md'
 import { ToastContainer, toast } from 'react-toastify'
-
+import 'react-toastify/dist/ReactToastify.min.css' 
 import config from '../../../config'
 import categoryRepository from '../../../repositories/categorias'
 import useForm from '../../../hooks/useForm'

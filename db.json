@@ -1,12 +1,6 @@
 {
   "categorias": [
     {
-      "titulo": "Back End",
-      "cor": "#294bc7",
-      "descricao": "Essa forma de desenvolvimento se relaciona com o que está por trás das aplicações desenvolvidas na programação. Ou seja, tudo que dá estrutura e apoio às ações do usuário da máquina é chamado de back-end",
-      "id": 4
-    },
-    {
       "titulo": "Front End",
       "cor": "#c02a2a",
       "descricao": "O desenvolvedor front-end é responsável pela experiência do usuário dentro de uma aplicação web, é ele quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.",
@@ -14,12 +8,6 @@
     }
   ],
   "videos": [
-    {
-      "titulo": "Guia para Desenvolvimento back-end",
-      "url": "https://youtu.be/HMwSUyH1Nbc",
-      "categoriaId": 4,
-      "id": 1
-    },
     {
       "titulo": "Curso completo e atual de HTML5 e CSS3 - Módulo 1 de 5",
       "url": "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
