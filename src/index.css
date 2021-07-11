@@ -31,4 +31,9 @@ a {
   display: flex;
   flex-direction: column;
 }
-
+@media (max-width:465px){
+  table{
+    visibility: hidden;
+    display: none;
+  }
+}

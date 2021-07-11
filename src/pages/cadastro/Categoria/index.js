@@ -171,7 +171,6 @@ const Th = styled.th`
 
 const Td = styled.td`
   text-align: center !important;
-
   .btn-delete {
     background: var(--danger);
     width: 80px;
@@ -179,7 +178,6 @@ const Td = styled.td`
     border: none;
     margin: 5px 15px 20px 0;
   }
-
   .btn-edit {
     background: var(--backEnd);
     width: 80px;
@@ -211,7 +209,6 @@ const Table = styled.table`
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
-
   thead tr th {
     padding: 15px;
     border: 1px solid #2a7ae4;
