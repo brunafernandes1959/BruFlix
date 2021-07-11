@@ -31,6 +31,27 @@ a {
   display: flex;
   flex-direction: column;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black); 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6BD1FF; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #016ca8; 
+}
+
 @media (max-width:465px){
   table{
     visibility: hidden;
