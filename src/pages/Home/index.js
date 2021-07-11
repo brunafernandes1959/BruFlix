@@ -8,6 +8,7 @@ import Carousel from '../../components/Carousel';
 import PageDefault from '../../components/PageDefault';
 import categoriasRepository from '../../repositories/categorias';
 
+
 function Home() {
   const [dadosIniciais, setDadosIniciais] = useState([]);
 
@@ -40,6 +41,7 @@ function Home() {
                 url={dadosIniciais[0].videos[0].url}
                 videoDescription={dadosIniciais[0].videos[0].description}
               />
+              
               <Carousel
                 ignoreFirstVideo
                 category={dadosIniciais[0]}
@@ -47,7 +49,7 @@ function Home() {
             </div>
           );
         }
-
+        
         return (
           <Carousel
             key={categoria.id}
