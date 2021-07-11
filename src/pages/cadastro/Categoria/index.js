@@ -13,7 +13,7 @@ import FormField from '../../../components/FormField'
 function Categoria() {
   const initialValues = {
     titulo: '',
-    cor: '#FF8847',
+    cor: '',
     link_extra: {
       text: '',
       url: '',
