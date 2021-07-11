@@ -66,13 +66,17 @@ function Categoria() {
       )
     }
   }
+  function handleClear(event) {
+    event.preventDefault();
+    clearForm();
+  }
 
   const { titulo, cor } = values
 
   return (
     <PageDefault>
       <form onSubmit={handleSubmit}>
-        <h1>Nova categoria</h1>
+        <h1>Nova Categoria: </h1>
         <FormField
           id="titulo"
           label="Nome da Categoria"
@@ -101,7 +105,7 @@ function Categoria() {
         />
         <ButtonCategory>
           <Button className="btn-salvar">Salvar</Button>
-          <Button className="btn-limpar" type="button">
+          <Button className="btn-limpar" type="button" onClick={handleClear}>
             Limpar
           </Button>
         </ButtonCategory>
