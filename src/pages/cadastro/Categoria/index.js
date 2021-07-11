@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import { MdDelete, MdModeEdit } from 'react-icons/md';
-import { ToastContainer, toast } from 'react-toastify';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
+import { MdDelete, MdModeEdit } from 'react-icons/md'
+import { ToastContainer, toast } from 'react-toastify'
 
-import config from '../../../config';
-import categoryRepository from '../../../repositories/categorias';
-import useForm from '../../../hooks/useForm';
-import PageDefault from '../../../components/PageDefault';
-import Button from '../../../components/Button';
-import FormField from '../../../components/FormField';
+import config from '../../../config'
+import categoryRepository from '../../../repositories/categorias'
+import useForm from '../../../hooks/useForm'
+import PageDefault from '../../../components/PageDefault'
+import Button from '../../../components/Button'
+import FormField from '../../../components/FormField'
 
 function Categoria() {
   const initialValues = {
@@ -20,13 +20,13 @@ function Categoria() {
     },
   };
   const { values, handleChange, clearForm } = useForm(initialValues);
-  const [categories, setCategories] = useState([]);
+  const [categorias, setCategorias] = useState([]);
 
   useEffect(() => {
     fetch(`${config.URL_APP}/categorias`).then(async (responseServer) => {
       const response = await responseServer.json();
 
-      setCategories([...response]);
+      setCategorias([...response]);
     });
   }, []);
 
@@ -40,7 +40,7 @@ function Categoria() {
           descricao: values.descricao,
         })
         .then(() => {
-          setCategories([...categories, values]);
+          setCategorias([...categorias, values]);
           clearForm();
           toast.success('Categoria cadastrada com sucesso!');
         });
@@ -55,8 +55,8 @@ function Categoria() {
         method: 'DELETE',
       });
 
-      const updatedList = categories.filter((item) => item.id !== id);
-      setCategories(updatedList);
+      const updatedList = categorias.filter((item) => item.id !== id);
+      setCategorias(updatedList);
 
       toast.error('Categoria apagada com sucesso!');
     } catch (error) {
@@ -67,6 +67,23 @@ function Categoria() {
   }
 
   const { titulo, cor } = values;
+
+  async function handleDelete(id) {
+    try {
+      await fetch(`${config.URL_APP}/categorias/${id}`, {
+        method: 'DELETE',
+      });
+
+      const updatedList = categorias.filter((item) => item.id !== id);
+      setCategorias(updatedList);
+
+      toast.error('Categoria apagada com sucesso!');
+    } catch (error) {
+      toast.error(
+        'Não foi possivél apagar. Entre em contato com o administrador.',
+      );
+    }
+  }
 
   return (
     <PageDefault>
@@ -107,7 +124,7 @@ function Categoria() {
         <ToastContainer position="top-right" autoClose={3000} />
       </form>
 
-      {categories.length === 0 && (
+      {categorias.length === 0 && (
         'Loading'
       )}
       <Table>
@@ -120,7 +137,7 @@ function Categoria() {
           </tr>
         </thead>
         <tbody>
-          {categories.map((category, index) => (
+          {categorias.map((category, index) => (
             // eslint-disable-next-line react/no-array-index-key
             <tr key={index}>
               <td>{category.titulo}</td>
