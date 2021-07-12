@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components'
-import FadeLoader from 'react-spinners/FadeLoader'
-import { MdDelete, MdModeEdit } from 'react-icons/md'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.min.css' 
-import config from '../../../config'
+import React, { useState, useEffect } from 'react';
 import categoryRepository from '../../../repositories/categorias'
-import useForm from '../../../hooks/useForm'
-import PageDefault from '../../../components/PageDefault'
-import Button from '../../../components/Button'
-import FormField from '../../../components/FormField'
+import styled from 'styled-components';
+import FadeLoader from 'react-spinners/FadeLoader'
+import PageDefault from '../../../components/PageDefault';
+import FormField from '../../../components/FormField';
+import useForm from '../../../hooks/useForm';
+import config from '../../../config'
+import { ToastContainer , toast } from 'react-toastify';
+import Button from '../../../components/Button';
+import { MdDelete, MdModeEdit } from 'react-icons/md'
+import { Link } from 'react-router-dom';
 
 function Categoria() {
   const initialValues = {
@@ -36,7 +36,7 @@ function Categoria() {
     event.preventDefault()
     try {
       categoryRepository
-        .create({
+        .createCategory({
           titulo: values.titulo,
           cor: values.cor,
           descricao: values.descricao,
@@ -47,7 +47,7 @@ function Categoria() {
           toast.success('Categoria cadastrada com sucesso!')
         })
     } catch (error) {
-      toast.error('Não foi possível cadastar a caterdoria.')
+      toast.error('Não foi possível cadastar a categoria.')
     }
   }
 
@@ -123,6 +123,7 @@ function Categoria() {
           <tr>
             <th>Titulo</th>
             <th>Descrição</th>
+            <th>Cor</th>
             <Th>Editar</Th>
             <Th>Apagar</Th>
           </tr>
@@ -133,8 +134,13 @@ function Categoria() {
               <tr key={index}>
                 <td>{category.titulo}</td>
                 <td>{category.descricao}</td>
+                <td >
+                  <div style={{backgroundColor:category.cor,width:80,height:54,borderRadius:10,margin:'5px 15px 20px 0',textAlign: 'left',padding:10}}>
+                  {category.titulo}
+                  </div>
+                </td>
                 <Td>
-                  <Button className="btn-edit">
+                  <Button className="btn-edit" as={Link} to={`/editar/categoria/${category.id}`}>
                     <MdModeEdit size={25} />
                   </Button>
                 </Td>
@@ -169,7 +175,6 @@ const Th = styled.th`
 
 const Td = styled.td`
   text-align: center !important;
-
   .btn-delete {
     background: var(--danger);
     width: 80px;
@@ -177,7 +182,6 @@ const Td = styled.td`
     border: none;
     margin: 5px 15px 20px 0;
   }
-
   .btn-edit {
     background: var(--backEnd);
     width: 80px;
@@ -209,7 +213,6 @@ const Table = styled.table`
   border-collapse: collapse;
   width: 100%;
   margin: 20px 0;
-
   thead tr th {
     padding: 15px;
     border: 1px solid #2a7ae4;

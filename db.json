@@ -2,7 +2,7 @@
   "categorias": [
     {
       "titulo": "Front End",
-      "cor": "#c02a2a",
+      "cor": "#8b8484",
       "descricao": "O desenvolvedor front-end é responsável pela experiência do usuário dentro de uma aplicação web, é ele quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.",
       "id": 5
     }
@@ -13,12 +13,6 @@
       "url": "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
       "categoriaId": 5,
       "id": 2
-    },
-    {
-      "titulo": "Curso de HTML5 - 00 - Site Completo - by Gustavo Guanabara",
-      "url": "https://www.youtube.com/watch?v=epDCjksKMok&list=PLHsIIjPB6DUJzYCgmrqJizURxuGyD_Ub9&ab_channel=CursoemV%C3%ADdeo",
-      "categoriaId": 5,
-      "id": 3
     },
     {
       "titulo": " ASSISTIR MAIS TARDE ADICIONAR À FILA Antes de ser frontend assista esse vídeo",

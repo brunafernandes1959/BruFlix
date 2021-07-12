@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { Link} from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { ToastContainer , toast } from 'react-toastify';
 
@@ -85,6 +86,9 @@ function NovoVideo() {
           <Button className="btn-limpar" onClick={handleClear}>
             Limpar
           </Button>
+          <Button as={Link} to="/ListVideos" className="ButtonLink">
+          Gerenciar Videos
+        </Button>
         </ButtonCategory>
       </form>
       <ToastContainer />
