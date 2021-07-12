@@ -5,6 +5,12 @@
       "cor": "#8b8484",
       "descricao": "O desenvolvedor front-end é responsável pela experiência do usuário dentro de uma aplicação web, é ele quem vai desenhar e desenvolver as páginas com as quais, posteriormente, o usuário irá interagir.",
       "id": 5
+    },
+    {
+      "titulo": "Back End",
+      "cor": "#ffe433",
+      "descricao": "asdassdsadad",
+      "id": 6
     }
   ],
   "videos": [
@@ -13,12 +19,6 @@
       "url": "https://www.youtube.com/watch?v=Ejkb_YpuHWs&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n",
       "categoriaId": 5,
       "id": 2
-    },
-    {
-      "titulo": " ASSISTIR MAIS TARDE ADICIONAR À FILA Antes de ser frontend assista esse vídeo",
-      "url": "https://www.youtube.com/watch?v=hGalqf_D8To",
-      "categoriaId": 5,
-      "id": 4
     }
   ]
 }
