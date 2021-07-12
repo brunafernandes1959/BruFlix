@@ -122,8 +122,8 @@ function Categoria() {
         <thead>
           <tr>
             <th>Titulo</th>
-            <th>Descrição</th>
-            <th>Cor</th>
+            <th className="descricao">Descrição</th>
+            <th className="cor">Cor</th>
             <Th>Editar</Th>
             <Th>Apagar</Th>
           </tr>
@@ -132,8 +132,8 @@ function Categoria() {
           {categories.map((category, index) => {
             return (
               <tr key={index}>
-                <td>{category.titulo}</td>
-                <td>{category.descricao}</td>
+                <td className="descricao">{category.titulo}</td>
+                <td className="cor">{category.descricao}</td>
                 <td >
                   <div style={{backgroundColor:category.cor,width:80,height:54,borderRadius:10,margin:'5px 15px 20px 0',textAlign: 'left',padding:10}}>
                   {category.titulo}
