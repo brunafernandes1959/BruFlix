@@ -136,7 +136,7 @@ function Categoria() {
                 <td className="cor">{category.descricao}</td>
                 <td >
                   <div style={{backgroundColor:category.cor,width:80,height:54,borderRadius:10,margin:'5px 15px 20px 0',textAlign: 'left',padding:10}}>
-                  {category.titulo}
+                  
                   </div>
                 </td>
                 <Td>
