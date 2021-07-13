@@ -61,7 +61,7 @@ function EditCategory(route) {
         >
 
           <FormField
-            label="Nome da Categoria: "
+            label="Nome da Categoria "
             type="text"
             name="titulo"
             value={titulo}
@@ -70,7 +70,7 @@ function EditCategory(route) {
 
           <FormField
             as="textarea"
-            label="Descrição: "
+            label="Descrição "
             type="textarea"
             name="descricao"
             value={descricao}
@@ -78,7 +78,7 @@ function EditCategory(route) {
           />
 
           <FormField
-            label="Cor: "
+            label="Cor "
             type="color"
             name="cor"
             value={cor}
