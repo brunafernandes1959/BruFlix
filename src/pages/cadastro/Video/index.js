@@ -37,6 +37,7 @@ function NovoVideo() {
         categoriaId: categoriaEscolhida.id,
       })
       .then(() => {
+        clearForm()
         history.push('/cadastro/video');
         
       });
