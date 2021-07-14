@@ -29,7 +29,37 @@ function deleteVideo(id) {
         return resposta;
       }
 
-      throw new Error('Não foi possível deletar a categoria  :(');
+      throw new Error('Não foi possível deletar o vídeo  :(');
+    });
+}
+
+function updateVideo(id, video) {
+  return fetch(`${URL_VIDEOS}/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-type': 'application/json',
+    },
+    body: JSON.stringify(video),
+  })
+    .then(async (respostaDoServidor) => {
+      if (respostaDoServidor.ok) {
+        const resposta = await respostaDoServidor.json();
+        return resposta;
+      }
+
+      throw new Error('Não foi possível atualizar o vídeo:(');
+    });
+}
+
+function getVideo(id) {
+  return fetch(`${URL_VIDEOS}/${id}`)
+    .then(async (respostaDoServidor) => {
+      if (respostaDoServidor.ok) {
+        const resposta = await respostaDoServidor.json();
+        return resposta;
+      }
+
+      throw new Error('Não foi possível pegar os dados :(');
     });
 }
 
@@ -48,4 +78,6 @@ export default {
   create,
   deleteVideo,
   getAll,
+  updateVideo,
+  getVideo,
 };

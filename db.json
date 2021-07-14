@@ -12,11 +12,7 @@
     {
       "id": 5,
       "titulo": "Games",
-      "cor": "red",
-      "link_extra": {
-        "text": "Formação de Jogos na Alura",
-        "url": "https://www.alura.com.br/cursos-online-front-end"
-      }
+      "cor": "red"
     },
     {
       "id": 4,
@@ -40,62 +36,14 @@
         "text": "Cursos de Back End na Alura",
         "url": "https://www.alura.com.br/cursos-online-programacao"
       }
-    },
-    {
-      "id": 3,
-      "titulo": "Data Science e Inteligência Artificial",
-      "cor": "#9cd33b",
-      "link_extra": {
-        "text": "Cursos de Data Science na Alura",
-        "url": "https://www.alura.com.br/cursos-online-mobile"
-      }
     }
   ],
   "videos": [
     {
-      "id": 50,
-      "categoriaId": 6,
-      "titulo": "SEO com React",
-      "description": "Será que é tão difícil fazer SEO com React?",
-      "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
-    },
-    {
-      "id": 51,
-      "categoriaId": 6,
-      "titulo": "Como fazer um React e aprender a ideia do Virtual DOM na prática",
-      "description": "Já parou pra pensar como que o React renderiza as coisas na tela?",
-      "url": "https://www.youtube.com/watch?v=5MzOCxSWrrc"
-    },
-    {
-      "id": 1,
-      "categoriaId": 1,
-      "titulo": "SEO com React",
-      "description": "Será que é tão difícil fazer SEO com React?",
-      "url": "https://www.youtube.com/watch?v=c8mVlakBESE"
-    },
-    {
-      "id": 2,
-      "categoriaId": 1,
-      "titulo": "O que faz uma desenvolvedora front-end? #HipstersPontoTube",
-      "url": "https://www.youtube.com/watch?v=ZY3-MFxVdEw"
-    },
-    {
-      "id": 3,
-      "categoriaId": 1,
-      "titulo": "Componentização com VanillaJS #AluraMais",
-      "url": "https://www.youtube.com/watch?v=LatCKpcOMak"
-    },
-    {
-      "id": 4,
-      "categoriaId": 1,
-      "titulo": "Pare de chutar e aprenda a display: inline #01",
-      "url": "https://www.youtube.com/watch?v=5PS6ku8NzIE"
-    },
-    {
-      "id": 5,
-      "categoriaId": 1,
       "titulo": "Template String: Interpolando strings com JavaScript #AluraMais",
-      "url": "https://www.youtube.com/watch?v=ORI_HTXaIw0"
+      "url": "https://www.youtube.com/watch?v=ORI_HTXaIw0",
+      "categoriaId": 1,
+      "id": 5
     },
     {
       "id": 6,
@@ -138,30 +86,6 @@
       "categoriaId": 2,
       "titulo": "Usando Git Direito",
       "url": "https://www.youtube.com/watch?v=6OokP-NE49k"
-    },
-    {
-      "id": 13,
-      "categoriaId": 3,
-      "titulo": "Teste de Turing",
-      "url": "https://www.youtube.com/watch?v=BaPGU4JWa34"
-    },
-    {
-      "id": 14,
-      "categoriaId": 3,
-      "titulo": "O que é Data Science?",
-      "url": "https://www.youtube.com/watch?v=5b9Z8toVaAU&t=9s"
-    },
-    {
-      "id": 15,
-      "categoriaId": 3,
-      "titulo": "Melhor forma de aprender Python",
-      "url": "https://www.youtube.com/watch?v=Gojqw9BQ5qY"
-    },
-    {
-      "id": 16,
-      "categoriaId": 3,
-      "titulo": "Como ingressar no mercado de Data Science?",
-      "url": "https://www.youtube.com/watch?v=gxyjGmOV540"
     },
     {
       "id": 17,
@@ -234,12 +158,6 @@
       "url": "https://www.youtube.com/watch?v=5t2gq3xJZ9o",
       "categoriaId": 6,
       "id": 55
-    },
-    {
-      "titulo": "Video padrão",
-      "url": "https://www.youtube.com/watch?v=jOAU81jdi-c",
-      "categoriaId": 1,
-      "id": 56
     }
   ]
 }

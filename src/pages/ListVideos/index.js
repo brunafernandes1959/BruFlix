@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { FiDelete, FiArrowLeft } from 'react-icons/fi';
+import { FiDelete, FiArrowLeft, FiEdit } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import PageDefault from '../../components/PageDefault';
 import videosRepository from '../../repositories/videos';
 import {
-  ButtonDelete, Table, Image, Title, Header,
+  ButtonDelete, Table, Image, Title, Header, ButtonEdit,
 } from './styles';
 
 function getYouTubeId(youtubeURL) {
@@ -52,6 +52,7 @@ function ListVideos() {
             <tr>
               <Image><img src={`https://img.youtube.com/vi/${getYouTubeId(video.url)}/hqdefault.jpg`} alt="Imagem do vídeo" /></Image>
               <Title>{video.titulo}</Title>
+              <td><ButtonEdit as={Link} to={`/editar/video/${video.id}`}><FiEdit /></ButtonEdit></td>
               <td>
                 <ButtonDelete onClick={() => clearVideo(video.id)}>
                   <FiDelete />

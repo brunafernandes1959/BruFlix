@@ -8,25 +8,25 @@ import PageDefault from '../../components/PageDefault';
 import FormField from '../../components/FormField';
 import Button from '../../components/Button';
 import Container from './styles';
-import categoriesRepository from '../../repositories/categorias';
+import videosRepository from '../../repositories/videos';
 
 function EditCategory(route) {
   const history = useHistory();
   const { id } = route.match.params;
 
   const [titulo, setTitulo] = useState('');
-  const [descricao, setDescricao] = useState('');
-  const [cor, setCor] = useState('');
+  const [categoriaId, setCategoriaId] = useState('');
+  const [url, setUrl] = useState('');
 
   const { clearForm } = useForm();
   const handleClick = () => toast.success('Categoria atualizada com sucesso!');
 
   useEffect(() => {
-    categoriesRepository.getCategory(id)
-      .then((categoria) => {
-        setTitulo(categoria.titulo);
-        setDescricao(categoria.descricao);
-        setCor(categoria.cor);
+    videosRepository.getVideo(id)
+      .then((video) => {
+        setTitulo(video.titulo);
+        setCategoriaId(video.categoriaId);
+        setUrl(video.url);
       });
     // eslint-disable-next-line
   }, []);
@@ -36,21 +36,20 @@ function EditCategory(route) {
       <Container>
         <div>
           <h1>
-            Editar Categoria:
+            Editar Vídeo:
             {' '}
             {titulo}
           </h1>
 
-          <Link to="/cadastro/categoria"><FiXCircle /></Link>
+          <Link to="/ListVideo"><FiXCircle /></Link>
         </div>
 
         <form onSubmit={function handleSubmit(info) {
           info.preventDefault();
-
-          categoriesRepository.updateCategory(id, {
+          videosRepository.updateVideo(id, {
             titulo,
-            cor,
-            descricao,
+            url,
+            categoriaId,
           })
             .then(() => {
               history.push('/cadastro/Categoria');
@@ -61,7 +60,7 @@ function EditCategory(route) {
         >
 
           <FormField
-            label="Nome da Categoria "
+            label="Titulo do vídeo "
             type="text"
             name="titulo"
             value={titulo}
@@ -69,21 +68,13 @@ function EditCategory(route) {
           />
 
           <FormField
-            as="textarea"
-            label="Descrição "
-            type="textarea"
-            name="descricao"
-            value={descricao}
-            onChange={(info) => setDescricao(info.target.value)}
+            label="Url "
+            type="text"
+            name="url"
+            value={url}
+            onChange={(info) => setUrl(info.target.value)}
           />
 
-          <FormField
-            label="Cor "
-            type="color"
-            name="cor"
-            value={cor}
-            onChange={(info) => setCor(info.target.value)}
-          />
           <ButtonCategory>
             <Button className="btn-salvar" onClick={handleClick} type="submit">Salvar</Button>
             <Button className="btn-limpar" type="button">

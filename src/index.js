@@ -9,6 +9,7 @@ import CadastroVideo from './pages/cadastro/Video';
 import CadastroCategoria from './pages/cadastro/Categoria';
 import ListVideos from './pages/ListVideos';
 import EditCategory from './pages/EditCategory';
+import EditVideo from './pages/EditVideo';
 
 ReactDOM.render(
   <BrowserRouter>
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="/ListVideos" component={ListVideos} />
       <Route path="/cadastro/categoria" component={CadastroCategoria} />
       <Route path="/editar/categoria/:id" component={EditCategory} />
+      <Route path="/editar/video/:id" component={EditVideo} />
       <Route component={404} />
     </Switch>
   </BrowserRouter>,

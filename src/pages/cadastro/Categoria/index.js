@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import categoryRepository from '../../../repositories/categorias'
 import styled from 'styled-components';
-import FadeLoader from 'react-spinners/FadeLoader'
+import FadeLoader from 'react-spinners/FadeLoader';
+import { ToastContainer, toast } from 'react-toastify';
+import { MdDelete, MdModeEdit } from 'react-icons/md';
+import { Link } from 'react-router-dom';
+import categoryRepository from '../../../repositories/categorias';
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import useForm from '../../../hooks/useForm';
-import config from '../../../config'
-import { ToastContainer , toast } from 'react-toastify';
+import config from '../../../config';
 import Button from '../../../components/Button';
-import { MdDelete, MdModeEdit } from 'react-icons/md'
-import { Link } from 'react-router-dom';
 
 function Categoria() {
   const initialValues = {
@@ -19,21 +19,20 @@ function Categoria() {
       text: '',
       url: '',
     },
-  }
-  const { values, handleChange, clearForm } = useForm(initialValues)
-  const [categories, setCategories] = useState([])
+  };
+  const { values, handleChange, clearForm } = useForm(initialValues);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     fetch(`${config.URL_APP}/categorias`).then(async (responseServer) => {
-      const response = await responseServer.json()
+      const response = await responseServer.json();
 
-      setCategories([...response])
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+      setCategories([...response]);
+    });
+  }, []);
 
   function handleSubmit(event) {
-    event.preventDefault()
+    event.preventDefault();
     try {
       categoryRepository
         .createCategory({
@@ -42,12 +41,12 @@ function Categoria() {
           descricao: values.descricao,
         })
         .then(() => {
-          setCategories([...categories, values])
-          clearForm()
-          toast.success('Categoria cadastrada com sucesso!')
-        })
+          setCategories([...categories, values]);
+          clearForm();
+          toast.success('Categoria cadastrada com sucesso!');
+        });
     } catch (error) {
-      toast.error('Não foi possível cadastar a categoria.')
+      toast.error('Não foi possível cadastar a categoria.');
     }
   }
 
@@ -55,16 +54,16 @@ function Categoria() {
     try {
       await fetch(`${config.URL_APP}/categorias/${id}`, {
         method: 'DELETE',
-      })
+      });
 
-      const updatedList = categories.filter((item) => item.id !== id)
-      setCategories(updatedList)
+      const updatedList = categories.filter((item) => item.id !== id);
+      setCategories(updatedList);
 
-      toast.error('Categoria apagada com sucesso!')
+      toast.error('Categoria apagada com sucesso!');
     } catch (error) {
       toast.error(
-        'Não foi possivél apagar. Entre em contato com o administrador.'
-      )
+        'Não foi possivél apagar. Entre em contato com o administrador.',
+      );
     }
   }
   function handleClear(event) {
@@ -72,7 +71,7 @@ function Categoria() {
     clearForm();
   }
 
-  const { titulo, cor } = values
+  const { titulo, cor } = values;
 
   return (
     <PageDefault>
@@ -115,7 +114,7 @@ function Categoria() {
 
       {categories.length === 0 && (
         <Loading>
-          <FadeLoader size={25} color={'#016ca8'}/>
+          <FadeLoader size={25} color="#016ca8" />
         </Loading>
       )}
       <Table>
@@ -123,55 +122,54 @@ function Categoria() {
           <tr>
             <th>Titulo</th>
             <th className="descricao">Descrição</th>
-            <th className="cor">Cor</th>
+            <Th className="cor">Cor</Th>
             <Th>Editar</Th>
             <Th>Apagar</Th>
           </tr>
         </thead>
         <tbody>
-          {categories.map((category, index) => {
-            return (
-              <tr key={index}>
-                <td className="descricao">{category.titulo}</td>
-                <td className="cor">{category.descricao}</td>
-                <td >
-                  <div style={{backgroundColor:category.cor,width:80,height:54,borderRadius:10,margin:'5px 15px 20px 0',textAlign: 'left',padding:10}}>
-                  
-                  </div>
-                </td>
-                <Td>
-                  <Button className="btn-edit" as={Link} to={`/editar/categoria/${category.id}`}>
-                    <MdModeEdit size={25} />
-                  </Button>
-                </Td>
-                <Td>
-                  <Button className="btn-delete">
-                    <MdDelete
-                      size={25}
-                      onClick={() => handleDelete(category.id)}
-                    />
-                  </Button>
-                </Td>
-              </tr>
-            )
-          })}
+          {categories.map((category) => (
+            <tr key={category.id}>
+              <td className="descricao">{category.titulo}</td>
+              <td className="cor">{category.descricao}</td>
+              <Td>
+                <div style={{
+                  backgroundColor: category.cor, width: 80, height: 54, borderRadius: 10, margin: '5px 15px 20px 0', textAlign: 'center !important', padding: 10,
+                }}
+                />
+              </Td>
+              <Td>
+                <Button className="btn-edit" as={Link} to={`/editar/categoria/${category.id}`}>
+                  <MdModeEdit size={25} />
+                </Button>
+              </Td>
+              <Td>
+                <Button className="btn-delete">
+                  <MdDelete
+                    size={25}
+                    onClick={() => handleDelete(category.id)}
+                  />
+                </Button>
+              </Td>
+            </tr>
+          ))}
         </tbody>
       </Table>
     </PageDefault>
-  )
+  );
 }
 
-export default Categoria
+export default Categoria;
 
 const Loading = styled.div`
   margin: 50px;
   display: flex;
   justify-content: center;
-`
+`;
 
 const Th = styled.th`
   text-align: center !important;
-`
+`;
 
 const Td = styled.td`
   text-align: center !important;
@@ -189,7 +187,7 @@ const Td = styled.td`
     border: none;
     margin: 5px 15px 20px 0;
   }
-`
+`;
 
 const ButtonCategory = styled.div`
   .btn-salvar {
@@ -206,7 +204,7 @@ const ButtonCategory = styled.div`
     border: none;
     margin: 5px 15px 20px 0;
   }
-`
+`;
 
 const Table = styled.table`
   border: 1px solid #2a7ae4;
@@ -225,4 +223,4 @@ const Table = styled.table`
     text-align: left;
     padding: 10px;
   }
-`
+`;

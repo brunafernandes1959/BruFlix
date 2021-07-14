@@ -83,3 +83,21 @@ export const ButtonDelete = styled.button`
         justify-content:center;
     }
 `;
+
+export const ButtonEdit = styled.button`
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    height: 40px;
+    outline: none;
+    padding: 0;
+    width: 40px;
+
+    svg{
+        align-items: center;
+        color: purple;
+        display: flex;
+        justify-content:center;
+    }
+`;
